@@ -53,48 +53,46 @@ let config = {
 				//clockBold: true,
 				//showWeek: true,
 				showSunTimes: true,
-				lat: 41.7189,
-				lon: -83.7130
+				lat: 37.7717,
+				lon: -122.4439
 			}
 		},
-		{
-			module: "calendar",
-			header: "US Holidays",
-			position: "top_left",
-			config: {
-				calendars: [
-					{
-						symbol: "calendar-check",
-						url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"					
-					},
-					{
-						url: "https://calendar.google.com/calendar/ical/shaleengoel17%40gmail.com/private-5c9a8432d64584f46e9a7715cb0ac951/basic.ics"
-					}
-				]
-			}
-		},
-		{
-			module: "compliments",
-			position: "lower_third",
-			config: {
-				updateInterval: 15000,
-				fadeSpeed: 2000,
-				compliments: {
-					// anytime:[
-					// 	
-					// 	"Seize the day",
-					// ]
-				}
-			}
-		},
+		// // {
+		// // 	module: "calendar",
+		// // 	header: "US Holidays",
+		// // 	position: "top_left",
+		// // 	config: {
+		// // 		calendars: [
+		// // 			{
+		// // 				symbol: "calendar-check",
+		// // 				url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"					
+		// // 			},
+		// // 			{
+		// // 				url: "https://calendar.google.com/calendar/ical/shaleengoel17%40gmail.com/private-5c9a8432d64584f46e9a7715cb0ac951/basic.ics"
+		// // 			}
+		// // 		]
+		// // 	}
+		// // },
+		// {
+		// 	module: "compliments",
+		// 	position: "lower_third",
+		// 	config: {
+		// 		updateInterval: 15000,
+		// 		fadeSpeed: 2000,
+		// 		compliments: {
+		// 			// anytime:[
+		// 			// 	
+		// 			// 	"Seize the day",
+		// 			// ]
+		// 		}
+		// 	}
+		// },
 		{
 			module: "weather",
 			position: "top_right",
 			config: {
 				weatherProvider: "openweathermap",
 				type: "current",
-				// location: "New York",
-				// locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
 				units: "imperial",
 				showPeriodUpper: true,
 				initialLoadDelay: 1000,
@@ -103,24 +101,22 @@ let config = {
 				apiKey: "cb924a6711002948be11b338c3d8ba39"
 			}
 		},
-		{
-			module: "weather",
-			position: "top_right",
-			header: "Weather Forecast",
-			config: {
-				weatherProvider: "openweathermap",
-				type: "forecast",
-				// location: "New York",
-				// locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				units: "imperial",
-				showPeriodUpper: true,
-				showPrecipitationAmount: true,
-				maxNumberOfDays: 6,
-				ignoreToday: true,
-				location: "San Francisco, US",
-				apiKey: "70fe03f5008149ec93c8518528b2ef8f"
-			}
-		},
+		// {
+		// 	module: "weather",
+		// 	position: "top_right",
+		// 	header: "Weather Forecast",
+		// 	config: {
+		// 		weatherProvider: "openweathermap",
+		// 		type: "forecast",
+		// 		units: "imperial",
+		// 		showPeriodUpper: true,
+		// 		showPrecipitationAmount: true,
+		// 		maxNumberOfDays: 3,
+		// 		ignoreToday: true,
+		// 		location: "San Francisco, US",
+		// 		apiKey: "70fe03f5008149ec93c8518528b2ef8f"
+		// 	}
+		// },
 		{
 			module: "newsfeed",
 			position: "bottom_bar",
@@ -137,34 +133,36 @@ let config = {
 				broadcastNewsUpdates: true
 			}
 		},
-		// READ THIS: https://forum.magicmirror.builders/topic/11000/any-simple-clean-monthly-calendar-display-with-google-events/6
-		// {
-		// 	module: 'MMM-CalendarExt2',
-		// 	position: "bottom_bar",
-		// 	config: {
-		// 		rotateInterval: 90*1000,
-		// 		calendars : [
-		// 		  {
-		// 			url: "https://calendar.google.com/calendar/ical/shaleengoel17%40gmail.com/private-5c9a8432d64584f46e9a7715cb0ac951/basic.ics",
-		// 			name:'personal'
-		// 		  },
-		// 		],
-		// 		views: [
-		// 		  {
-		// 			name: "Default",
-		// 			mode: "daily",
-		// 			position:"lower_third",
-		// 			calendars: ['personal']
-		// 		  },
-		// 		],
-		// 		scenes: [
-		// 		  {
-		// 			name: "DEFAULT",
-		// 			views:['Default'],
-		// 		  },
-		// 		],
-		// 	},
-		// },
+		//READ THIS: https://forum.magicmirror.builders/topic/11000/any-simple-clean-monthly-calendar-display-with-google-events/6
+		{
+			module: 'MMM-CalendarExt2',
+			config: {
+				calendars: [
+				  {
+					url: "https://calendar.google.com/calendar/ical/shaleen%40voyagesms.com/private-7f278194e127701cb712fe036cf9546f/basic.ics",
+					name: "work",
+				  },
+				  {
+					  url: "https://calendar.google.com/calendar/ical/shaleengoel17%40gmail.com/private-5c9a8432d64584f46e9a7715cb0ac951/basic.ics",
+					  name: "personal"
+				  }
+				],
+				views: [
+				  {
+					mode: "daily",
+					//name: "Default",	
+					position:"middle",
+					calendars: ['work', 'personal']
+				  },
+				],
+				scenes: [
+				  {
+					name: "DEFAULT",
+					//views:[],
+				  },
+				],
+			},
+		},
 	]
 };
 
